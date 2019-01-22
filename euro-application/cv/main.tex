@@ -1,0 +1,251 @@
+\documentclass[10pt]{article}
+
+% This is a helpful package that puts math inside length specifications
+\usepackage{calc}
+\usepackage{comment}
+
+% Simpler bibsection for CV sections
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em} %1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newenvironment{bibsection}%
+        {\begin{enumerate}{}{%
+%        {\begin{list}{}{%
+       \setlength{\leftmargin}{\bibhang}%
+       \setlength{\itemindent}{-\leftmargin}%
+       \setlength{\itemsep}{\bibsep}%
+       \setlength{\parsep}{\z@}%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{enumerate}\vspace{-.6\baselineskip}}
+%        {\end{list}\vspace{-.6\baselineskip}}
+\makeatother
+
+% Puts the section titles on left side of page
+\reversemarginpar
+
+% Set up page for A4-size paper
+\usepackage[paper=a4paper,
+            %includefoot, % Uncomment to put page number above margin
+            marginparwidth=30.5mm,    % Length of section titles
+            marginparsep=1.5mm,       % Space between titles and text
+            margin=2.5cm,              % 25mm margins
+            includemp]{geometry}
+
+% Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+\usepackage[shortlabels]{enumitem}
+
+% Reference the last page in the page number
+
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page}
+                    \hfill \,}}
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+\newcommand{\makeheading}[2][]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+             {\large \bfseries #2 \hfill #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+% The section headings
+%
+% Usage: \section{section name}
+\renewcommand{\section}[1]{\pagebreak[3]%
+    \hyphenpenalty=10000%
+    \vspace{1.3\baselineskip}%
+    \phantomsection\addcontentsline{toc}{section}{#1}%
+    \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\raggedright #1}}}
+    %
+    \vspace{-\baselineskip}\par}
+
+% An itemize-style list with lots of space between items
+\newenvironment{outerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*]}{\end{itemize}%
+         \vspace{-.6\baselineskip}}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{lonelist}[1][\enskip\textbullet]%
+        {\begin{list}{#1}{%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+
+% An itemize-style list with little space between items
+\newenvironment{innerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[%
+            #1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
+        {\end{itemize}}
+
+% An environment IDENTICAL to innerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{loneinnerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[%
+            #1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
+        {\end{itemize}\vspace{-.6\baselineskip}}
+
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[3]}
+\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
+
+% Uses hyperref to link DOI
+\newcommand\doilink[1]{\href{http://dx.doi.org/#1}{#1}}
+\newcommand\doi[1]{doi:\doilink{#1}}
+
+% For \url{SOME_URL}, links SOME_URL to the url SOME_URL
+\providecommand*\url[1]{\href{#1}{#1}}
+% Same as above, but pretty-prints SOME_URL in teletype fixed-width font
+\renewcommand*\url[1]{\href{#1}{\texttt{#1}}}
+
+% For \email{ADDRESS}, links ADDRESS to the url mailto:ADDRESS
+\providecommand*\email[1]{\href{mailto:#1}{#1}}
+% Same as above, but pretty-prints ADDRESS in teletype fixed-width font
+%\renewcommand*\email[1]{\href{mailto:#1}{\texttt{#1}}}
+
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    \TeX}}
+\providecommand\BibTeX{{B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    \TeX}}
+\providecommand\Matlab{\textsc{Matlab}}
+
+
+\begin{document}
+\makeheading{Henry Wilde}
+
+
+\section{Contact Information}
+
+\newlength{\rcollength}\setlength{\rcollength}{4cm}%
+
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
+36 May St, Cathays & 07837 456742 \\
+Cardiff CF24 4EX   & \email{wildehd@cardiff.ac.uk}\\
+\end{tabular}
+
+\section{Research Interests}
+
+Healthcare modelling, machine learning, game theory, and stochastic modelling
+
+\section{Education}
+
+\href{http://www.cardiff.ac.uk/}{\textbf{Cardiff University}}, Cardiff, Wales
+\begin{outerlist}
+
+\item[] Ph.D.,
+        \href{http://www.cardiff.ac.uk/study/postgraduate/funding/view/
+              phd-in-statistics,-operational-research-and-data-analytics}
+             {Applied Statistics, Operational Research and Data Analytics},\\
+             \emph{Expected:}~Autumn~2020
+        \begin{innerlist}
+        \item Topic: \emph{Utilising machine learning to understand cost 
+            variability in the NHS}
+        \item Supervisors:
+            \href{https://www.cardiff.ac.uk/people/view/98648-gillard-jonathan}
+                 {Dr. Jonathan Gillard} and
+            \href{https://www.cardiff.ac.uk/people/view/98654-knight-vincent}
+                 {Dr. Vincent Knight}
+        \end{innerlist}
+\item[] B.Sc.,
+        \href{https://www.cardiff.ac.uk/study/undergraduate/courses/2018/
+              mathematics-bsc}
+              {Mathematics}, \emph{First Class Honours}, July 2017
+        \begin{innerlist}
+        \item Key modules: \emph{Mathematical Methods for Data Mining, Game
+            Theory,\\
+            Algorithms and Heuristics, Optimisation}
+        \item Projects included: building a simulation of a hospital emergency 
+            department, and a principal analysis of two game-theoretic 
+            strategies within an Iterated Prisoner's Dilemma tournament.
+        \end{innerlist}
+\end{outerlist}
+
+\section{Relevant Service and Teaching Experience}
+
+\textbf{Module Tutor}, \emph{School of Mathematics, Cardiff University} \hfill 
+{Oct 2017 -- Dec 2017}
+\begin{outerlist}
+\item[] Computing for Mathematics (MA1003) with Dr Vincent Knight
+    \begin{innerlist}
+    \item[] An introductory course on using Python for mathematics. I supported 
+        the module by supervising weekly computer lab sessions for groups of 
+        students to complete exercises and ask questions about the course
+        material.\\
+    \end{innerlist}
+\end{outerlist}
+
+\textbf{Personal Tutor} \hfill {Sept 2016 -- June 2017}
+\begin{outerlist}
+\item[] Providing one-on-one sessions for GCSE Mathematics with C/D borderline 
+    students.\\
+\end{outerlist}
+
+\textbf{Student Mentor}, \emph{School of Mathematics, Cardiff University} \hfill
+{Sept 2016 -- Jan 2017}
+\begin{outerlist}
+\item[] Assisting a group of first year Mathematics undergraduates transition
+    to life at university through regular group meetings as well as providing 
+    individual support.
+\end{outerlist}
+
+\section{Additional Activities}
+
+\textbf{Memberships}
+\begin{outerlist}
+\item[] \href{http://www.pydiff.wales/}{PyDiff}
+        \begin{innerlist}
+        \item Cardiff-based Python discussion group.
+        \item I have spoken on the usefulness of specific libraries for handling
+            large, complex datasets with Python.
+        \end{innerlist}
+\item[] \href{http://www.theorsociety.com/Pages/Regional/swords.aspx}{SWORDS}
+        \begin{innerlist}
+        \item South Wales Operational Research Discussion Society
+        \item Regular attendee to meetings and talks since 2016
+        \end{innerlist}
+\end{outerlist}
+
+
+\section{References}
+
+Jonathan Gillard
+\begin{innerlist}
+\item[] Senior Lecturer in Statistics, Director of Admissions \hfill {+44 (0)29 
+    2087 0619}\\
+    School of Mathematics, \hfill {gillardjw@cardiff.ac.uk}\\
+    Cardiff University\\
+\end{innerlist}
+
+Vincent Knight
+\begin{innerlist}
+\item[] Senior Lecturer \hfill {+44 (0)29 2087 5548}\\
+    School of Mathematics, \hfill {knightva@cardiff.ac.uk}\\
+    Cardiff University\\
+\end{innerlist}
+
+\end{document}
+
