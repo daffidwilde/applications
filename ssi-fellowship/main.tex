@@ -1,7 +1,7 @@
 \documentclass{beamer}
 
 
-\usecolortheme[dark]{solarized}
+\usecolortheme[]{solarized}
 \beamertemplatenavigationsymbolsempty%
 
 
@@ -9,8 +9,8 @@
 \usepackage{graphicx}
 
 
-\title{Henry Wilde}
-\author{@daffidwilde}
+\title{\Huge Henry Wilde}
+\author{\huge @daffidwilde}
 \date{}
 
 \begin{document}
@@ -24,7 +24,7 @@
     \begin{columns}[T]
         \begin{column}{.5\textwidth}
             \centering
-            \includegraphics[width=\linewidth]{sun.jpg}
+            \includegraphics[width=.9\linewidth]{sun.jpg}
         \end{column}%
         \begin{column}{.5\textwidth}
             \centering
@@ -34,9 +34,9 @@
             \vspace{5pt}
 
             \begin{itemize}
-                \item Operational research
-                \item Healthcare modelling
-                \item Machine learning
+                \item[] Operational research
+                \item[] Healthcare modelling
+                \item[] Machine learning
             \end{itemize}
         \end{column}
     \end{columns}
@@ -49,10 +49,11 @@
     \begin{columns}[T]
         \begin{column}{.5\textwidth}
             \centering
-            \includegraphics[width=.6\linewidth]{python.png}\\
+            \vspace{20pt}
+            \includegraphics[width=.5\linewidth]{python.png}\\
             \vspace{10pt}
             \begin{figure}
-                \includegraphics[width=.75\linewidth]{github.png}
+                \includegraphics[width=.5\linewidth]{github.png}
                 \caption{\tiny github.com/daffidwilde}
             \end{figure}
         \end{column}
@@ -71,56 +72,52 @@
 
 
 \begin{frame}{My research}
-    \begin{minipage}{\textwidth}
         \raggedright%
-        \includegraphics[width=.75\linewidth]{blackhole.png}\\
+        \includegraphics[width=.6\linewidth]{transform.png}\\
         \vspace{10pt}
-        \includegraphics[width=.75\linewidth]{transform.png}
-    \end{minipage}
-
-    \vspace{30pt}
-
-    \begin{minipage}{\textwidth}
-        \begin{columns}[T]
-            \begin{column}{.5\linewidth}
-                \begin{itemize}
-                    \item Close relationships with healthcare managers
-                    \item Part of a department with three committed Fellows
-                \end{itemize}
-            \end{column}
-            \begin{column}{.5\linewidth}
-                \includegraphics[width=\linewidth]{theawards.jpg}
-            \end{column}
-        \end{columns}
-    \end{minipage}
+        \raggedleft%
+        \includegraphics[width=.6\linewidth]{budget.png}
 \end{frame}
 
 
 \begin{frame}{Local action}
-    \begin{columns}[T]
-        \begin{column}{.5\textwidth}
-            \centering
-            \includegraphics[width=\linewidth]{theorsociety.jpg}\\
-            \vspace{30pt}
-            \includegraphics[width=.4\linewidth]{pydiff.png}%
-            \includegraphics[width=.4\linewidth]{pydata.jpg}
-        \end{column}
-        \begin{column}{.5\textwidth}
-            \centering
-            \includegraphics[width=.8\linewidth]{wmc.png}\\
-            \vspace{30pt}
-            \includegraphics[width=.8\linewidth]{academy.png}
-        \end{column}
-    \end{columns}
+    \centering
+    \includegraphics[width=.5\linewidth]{theorsociety.jpg}\\
+    \vspace{10pt}
+    \includegraphics[width=.5\linewidth]{wmc.png}\\
+    \vspace{10pt}
+    \includegraphics[width=.6\linewidth]{academy.png}
 \end{frame}
 
 
 \begin{frame}{Further afield}
+    \begin{columns}[T]
+        \begin{column}{.25\textwidth}
+            \raggedleft%
+            \vspace{10pt}
+            \includegraphics[width=.9\linewidth]{pyconuk.png}
+        \end{column}
+        \begin{column}{.75\textwidth}
+            \centering
+            \includegraphics[width=.8\linewidth]{theorsociety.jpg}\\
+            \vspace{10pt}
+            \includegraphics[width=.4\linewidth]{dublin.png}\hspace{20pt}%
+            \raisebox{-10pt}{\includegraphics[width=.4\linewidth]{scipy.png}}
+        \end{column}
+    \end{columns}
+
 
 \end{frame}
 
 
-\begin{frame}{Thank you}
+\begin{frame}
+
+    %\centering
+    \huge{%
+        My Fellowship would allow me to take advantage of my close relationships
+        with the NHS and OR communities in South Wales for the good of the 
+        Software Sustainability Institute.
+    }
 
 \end{frame}
 
